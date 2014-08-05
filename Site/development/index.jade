@@ -1,157 +1,96 @@
 !!! 5
 html
 	head
-		title Apprimore
+		title Appixel
 		link(href='assets/css/style.css', rel='stylesheet', type='text/css')
 		meta(charset='utf-8')
 	body
-
-
-		header(style="display: none")
+		#header
 			.content
 				a.logo
 
-				nav
-					a(href="#")
-						| HOME
-					a(href="#")
-						| APPS
-					a(href="#")
-						| QUEM SOMOS
-					a(href="#")
-						| CONTATO
+				.menu
+					a(href="") HOME
+					a(href="") APPS
+					a(href="") EQUIPE
+					a(href="") CONTATO
 
-
-
-		#header
-			.overlay
-
-
-
-			.content.center
-				a.logo
-
-				nav
-					a.active(href="#")
-						| HOME
-					a(href="#")
-						| APPS
-					a(href="#")
-						| QUEM SOMOS
-					a(href="#")
-						| CONTATO
-					
 				.clear
 
-				h1 Aperfeiçoando o seu futuro no dia a dia.
-				h5 Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.
+				.left
+					h4 LOREM IPSUM IS DUMMY
+					h1 LOREM IPSUM IS SIMPLY DUMMY
+					p Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+					button CONHEÇA NOSSOS APPS
 
-				button.ns-apps(href="#")
-					| CONHEÇA NOSSOS APPS
+				.celular
 
+ 
+		#aplicativos
+			.content
+				.icon
+				h3 APLICATIVOS PARA FACILITAR SUA VIDA.
+				h5 Utilidade, diversão, e o que for deixar sua vida mais leve e tranquila.
 
-		.ctt
+				.clear
 
-			#ctt-cheatter.apps
-				.content
-					h3 LOREM IPSUM  DOLOR SIT AMET CONSECTETUER
-					h5 Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+				.listApp
+					.apps
+						.queSorte
+						.right
+							h2 QUE SORTE
+							p Quem nunca naquela hora de fazer uma fézinha ficou olhando o jogo e rodeando os 60 números sem saber por onde começar a marcar? Contra a sorte não existem estastísticas.
+							p O Que Sorte! é um App desenvolvido para facilitar a vida dos apostadores que na hora da aposta acabam em dúvida em quais números jogar. Os números são gerados de forma aleatória e é possível salvar os últimos jogos para auxiliar na conferência do resultado da Mega Sena e da Quina.
 
-					.clear
-					.aplicativos.bg
-					.descricao
-						h2 CHEATTER
-							strong.bg
-						p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipite.
-						p
-							strong.bg.icon01
-							| Claritas est etiam processus dynamicus.
-						p
-							strong.bg.icon02
-							| Feugait nulla facilisi.
-						p
-							strong.bg.icon03
-							| Obis videntur parum clari.
-						a.bg.apple
-						a.bg.google
-						a.bg.windows
-						a.bg.mozilla
-						a.bg.amazon
+							a.apple
+							a.google
+							a.mozilla
 
+		#equipe
+			.content
+				.icon
+				h3 SIM, DESENVOLVEMOS APPS MOBILE.
+				h5 Diversão é o nosso trabalho. Nosso trabalho é nossa diversão. E a sua também.
 
+				.clear
 
-			#ctt-vibrate.apps
-				.content
-					.descricao
-						h2 VIBRATE U
-							strong.bg
-						p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipite.
-						p
-							| Claritas est etiam processus dynamicus.
-							strong.bg.icon01
-						p
-							| Feugait nulla facilisi.
-							strong.bg.icon02
-						p
-							| Obis videntur parum clari.
-							strong.bg.icon03
-						
-						a.bg.amazon
-						a.bg.apple
-						a.bg.google
-						a.bg.windows
-						a.bg.mozilla
+				.user
+					div(style="background-image: url(assets/images/andre.jpg)")
+					span André Castro™
+					p Web Designer
+					a(href="#")
 
-					.aplicativos.bg
+				.user
+					div(style="background-image: url(assets/images/carlos.jpg)")
+					span Carlos Eduardo™
+					p Desenvolvedor
+					a(href="#")
+
+				.user
+					div(style="background-image: url(assets/images/andre.jpg)")
+					span Milton Vinícius
+					p Desenvolvedor
+					a(href="#")
 
 
+		#contato
+			.content
+				.icon
+				h3 ENTRE EM  CONTATO CONOSCO
+				h5 Para nos enviar uma mensagem, ou para dizer um simples olá. Responderemos o mais breve possível.
 
+				.clear
 
-			#ctt-apprimore.apps
-				.content
-					h3 CONHEÇA A APPRIMORE
-					h5 Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-					p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.orem ipsum dolor sit amet, consectetuer adipiscing elit,.
+				.form
+					input(type="text", placeholder="NOME")
+					input(type="text", placeholder="E-MAIL")
+					textarea(placeholder="MENSAGEM")
+					input(type="submit", value="ENVIAR MENSAGEM")
 
-					.box
-						.bg.iconApp01
-						h4 INOVAÇÕES EM APPS
-						p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
-
-					.box.meio
-						.bg.iconApp02
-						h4 APLICATIVOS LEVES
-						p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
-
-					.box
-						.bg.iconApp03
-						h4 LAYOUTS RESPONSIVOS
-						p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
-			
-			footer
-				.content
-					h3 ENTRE EM CONTATO CONOSCO
-					h5 Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-					
-					.clear
-					.form
-						input(type="text", placeholder="Nome")
-						input(type="text", placeholder="E-mail")
-						textarea(placeholder="Mensagem")
-						input(type="submit", value="ENVIAR")
-					.right
-						p Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes su aplica demonstraverunt lectores legere me lius.
-						a.contato(href="#")
-							| contato@apprimore.com.br
-						.clear
-						a.bg.twitter
-						a.bg.facebook
-						a.bg.insta
-
-					.clear
-					p.copy
-						| Apprimore Apps 2014 ©
-						br
-						| Todos os direitos reservados.
+				.copy
+					| Appixel Apps 2014 ©
+					br
+					| Todos os direitos reservados.
+		
 
 		script(src="assets/scripts/script.js")
