@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Monta Foto</title>
+</head>
+
+<style>
+	html, body {
+		margin: 0;
+		padding: 0;
+		background-color: #171D22;
+		height: 100%;
+	}
+
+	#content {
+		width: 100%;
+		height: 100%;
+		margin: 0px;
+		padding: 0;
+		overflow: hidden;
+	}
+
+	#pageSlide {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 200%;
+	    height: 100%;
+	    -webkit-transform: translate3d(0, 0, 0);
+	    transform: translate3d(0, 0, 0);
+	    -webkit-transition-duration: .25s;
+    	transition-duration: .25s;
+	}
+
+	.left {
+	    -webkit-transform: translate3d(-100%, 0, 0);
+	    transform: translate3d(-100%, 0, 0);
+	}
+	 
+	.center {
+	    -webkit-transform: translate3d(0, 0, 0);
+	    transform: translate3d(0, 0, 0);
+	}
+
+	.page {
+		width: 50%;
+		float: left;
+		height: 100%;
+	}
+
+
+	/*A HOME SERÁ SEMPRE FIXA.
+	AO CLICAR EM ALGUM MENU: DAR DISPLAY BLOCK NA PAGINA
+	CORRESPONDENTE E ADD CLASS "left" no #pageSlide. E QUANDO CLICAR EM VOLTAR REVOMER A CLASS .left E ADD a CLASS center. E DAR DISPLAY NONE NA TELA*/
+
+</style>
+
+<body>
+	<!-- #content -->
+	<div id="content">
+		<!-- .pageSlide -->
+		<div id="pageSlide" class="center">
+
+			<!-- home -->
+			<div id="home" class="page">
+				<div id="logo-appixel"></div>
+
+				<a class="config"></a>
+				<a class="record"></a>
+
+				<div class="logo"></div>
+				<button id="jogar">JOGAR</button>
+				<button id="sobre">SOBRE</button>
+			</div><!-- home -->
+
+
+			
+			
+
+		</div><!-- .pageSlide -->
+
+	</div><!-- #content -->
+</body>
+</html>
