@@ -327,8 +327,12 @@ a.mozilla {
 #equipe .user {
 	width: 268px;
 	float: left;
-	margin: 70px 50px 0;
+	margin: 70px 100px 0; 
 	text-align: center;
+}
+
+#equipe .one {
+	margin-left: 210px !important;
 }
 
 #equipe .user div {
