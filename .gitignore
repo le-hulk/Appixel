@@ -3,3 +3,6 @@ node_modules/
 build/
 test/
 .sass-cache/
+Site/node_modules/
+Site/test/
+Site/build/

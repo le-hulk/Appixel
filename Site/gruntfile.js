@@ -76,6 +76,16 @@ module.exports = function(grunt) {
                     cwd: '<%= meta.development.images %>',
                     src: ['**'],
                     dest: '<%= meta.test.images %>'
+                }, {
+                    expand: true,
+                    cwd: '<%= meta.development.raiz %>assets/scripts/',
+                    src: ['**'],
+                    dest: '<%= meta.test.raiz %>assets/scripts/'
+                }, {
+                    expand: true,
+                    cwd: '<%= meta.resources.raiz %>ico/',
+                    src: ['*.ico'],
+                    dest: '<%= meta.test.raiz %>'
                 }]
             },
 
@@ -91,6 +101,16 @@ module.exports = function(grunt) {
                     cwd: '<%= meta.development.images %>',
                     src: ['**'],
                     dest: '<%= meta.build.images %>'
+                }, {
+                    expand: true,
+                    cwd: '<%= meta.resources.raiz %>ico/',
+                    src: ['*.ico'],
+                    dest: '<%= meta.build.raiz %>'
+                }, {
+                    expand: true,
+                    cwd: '<%= meta.development.raiz %>php/',
+                    src: ['**'],
+                    dest: '<%= meta.build.raiz %>php/'
                 }]
             }
         },
@@ -101,14 +121,13 @@ module.exports = function(grunt) {
           build: {
             options: {
               pretty: true,
-              data: {
-                  debug: true
-              }
+              data: function(dest, src) { return require('./development/assets/scripts/textos.json'); },
+              
             },
             files: [{
               expand: true,
-              cwd: '<%= meta.development.raiz %>',
-              src: ['**/*.jade'],
+              cwd: '<%= meta.development.raiz %>/jade',
+              src: ['*.jade'],
               dest: '<%= meta.build.raiz %>',
               ext: '.html'
             }]
@@ -116,14 +135,13 @@ module.exports = function(grunt) {
           test: {
             options: {
               pretty: true,
-              data: {
-                  debug: true
-              }
+              data: function(dest, src) { return require('./development/assets/scripts/textos.json'); },
+              
             },
             files: [{
               expand: true,
-              cwd: '<%= meta.development.raiz %>',
-              src: ['**/*.jade'],
+              cwd: '<%= meta.development.raiz %>/jade/',
+              src: ['*.jade'],
               dest: '<%= meta.test.raiz %>',
               ext: '.html'
             }]
@@ -136,45 +154,84 @@ module.exports = function(grunt) {
           options: {
             banner: '// <%= grunt.template.today("dd-mm-yyyy") %> \n'
           },
-          test: {
-            src: ['<%= meta.development.raiz %>assets/scripts/*.js'],
-            dest: '<%= meta.test.raiz %>assets/scripts/script.js'
-          },
           build: {
               src: ['<%= meta.development.raiz %>assets/scripts/*.js'],
-              dest: '<%= meta.build.raiz %>assets/scripts/script.js'
+              dest: '<%= meta.build.raiz %>assets/scripts/main.js'
           }
         },
 
-        // Compila sass para o css
-
-        compass: {
+        // Stylus CSS
+        stylus: {
           test: {
             options: {
-              force: true,
-              environment: "development",
-              outputStyle: "expanded",
-              cssDir: "<%= meta.test.raiz %>assets/css/",
-              sassDir: "<%= meta.development.raiz %>assets/scss/"
+                compress: false,
+                paths: ['stylus']
+            },
+            files: {
+                '<%= meta.test.raiz %>assets/styles/main.css': ['<%= meta.development.raiz %>assets/styl/**/*.styl']
             }
           },
           build: {
             options: {
-              force: true,
-              environment: "production",
-              outputStyle: "expanded",
-              cssDir: "<%= meta.build.raiz %>assets/css/",
-              sassDir: "<%= meta.development.raiz %>assets/scss/"
+                compress: true,
+                paths: ['stylus']
+            },
+            files: {
+                '<%= meta.build.raiz %>assets/styles/main.css': ['<%= meta.development.raiz %>assets/styl/**/*.styl']
             }
           }
+        },
+
+        watch: {
+            css: {
+                files: '<%= meta.development.raiz %>**/*.styl',
+                tasks: ['stylus:test']
+            },
+            js: {
+                files: '<%= meta.development.raiz %>**/*.js',
+                tasks: ['uglify:test']
+            },
+            html: {
+                files: '<%= meta.development.raiz %>**/*.jade',
+                tasks: ['jade:test']
+            }
+        },
+
+        htmlcompressor: {
+            options: {
+                preserveServerScript: true,
+                removeIntertagSpaces: true
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= meta.build.raiz %>',
+                    src: ['**/*.html'],
+                    dest: '<%= meta.build.raiz %>'
+                }]
+            }
+        },
+
+        rsync: {
+            options: {
+                recursive: true
+            },
+            dist: {
+                options: {
+                    src: "build/",
+                    dest: "./",
+                    host: "root@104.131.184.196",
+                    syncDestIgnoreExcl: false /* NAO ALTERAR */
+                }
+            },
         }
+        
     });
 
     /**
      * Comandos
      */
 
-     // COMANDOS
 
       // Inicialização do imagemin para desenvolvimento
       grunt.registerTask('minificarImagem', ['clean:images', 'imagemin']);
@@ -183,10 +240,21 @@ module.exports = function(grunt) {
       grunt.registerTask('test', [
         'clean:test',
         'copy:test',
-        'compass:test',
-        'uglify:test',
-        'jade:test'
+        'stylus:test',
+        'jade:test',
+        'watch'
       ]);
 
     // Build
+    grunt.registerTask('build', [
+        'clean:build',
+        'copy:build',
+        'stylus:build',
+        'uglify:build',
+        'jade:build',
+        'htmlcompressor'
+      ]);
+
+    // Deploy
+    // grunt.registerTask('deploy', ['rsync']);
 };
