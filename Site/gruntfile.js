@@ -126,7 +126,7 @@ module.exports = function(grunt) {
             },
             files: [{
               expand: true,
-              cwd: '<%= meta.development.raiz %>/jade',
+              cwd: '<%= meta.development.raiz %>',
               src: ['*.jade'],
               dest: '<%= meta.build.raiz %>',
               ext: '.html'
@@ -134,13 +134,13 @@ module.exports = function(grunt) {
           },
           test: {
             options: {
-              pretty: true,
-              data: function(dest, src) { return require('./development/assets/scripts/textos.json'); },
+              pretty: true
+              // data: function(dest, src) { return require('./development/assets/scripts/textos.json'); },
               
             },
             files: [{
               expand: true,
-              cwd: '<%= meta.development.raiz %>/jade/',
+              cwd: '<%= meta.development.raiz %>',
               src: ['*.jade'],
               dest: '<%= meta.test.raiz %>',
               ext: '.html'
@@ -168,7 +168,7 @@ module.exports = function(grunt) {
                 paths: ['stylus']
             },
             files: {
-                '<%= meta.test.raiz %>assets/styles/main.css': ['<%= meta.development.raiz %>assets/styl/**/*.styl']
+                '<%= meta.test.raiz %>assets/css/style.css': ['<%= meta.development.raiz %>assets/styl/**/*.styl']
             }
           },
           build: {
@@ -177,7 +177,7 @@ module.exports = function(grunt) {
                 paths: ['stylus']
             },
             files: {
-                '<%= meta.build.raiz %>assets/styles/main.css': ['<%= meta.development.raiz %>assets/styl/**/*.styl']
+                '<%= meta.build.raiz %>assets/css/style.css': ['<%= meta.development.raiz %>assets/styl/**/*.styl']
             }
           }
         },
