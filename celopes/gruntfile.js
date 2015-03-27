@@ -126,7 +126,7 @@ module.exports = function(grunt) {
             },
             files: [{
               expand: true,
-              cwd: '<%= meta.development.raiz %>/jade',
+              cwd: '<%= meta.development.raiz %>',
               src: ['*.jade'],
               dest: '<%= meta.build.raiz %>',
               ext: '.html'
@@ -134,13 +134,13 @@ module.exports = function(grunt) {
           },
           test: {
             options: {
-              pretty: true,
-              data: function(dest, src) { return require('./development/assets/scripts/textos.json'); },
+              pretty: true
+              // data: function(dest, src) { return require('./development/assets/scripts/textos.json'); },
               
             },
             files: [{
               expand: true,
-              cwd: '<%= meta.development.raiz %>/jade/',
+              cwd: '<%= meta.development.raiz %>',
               src: ['*.jade'],
               dest: '<%= meta.test.raiz %>',
               ext: '.html'
