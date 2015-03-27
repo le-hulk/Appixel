@@ -120,8 +120,8 @@ module.exports = function(grunt) {
         jade: {
           build: {
             options: {
-              pretty: true,
-              data: function(dest, src) { return require('./development/assets/scripts/textos.json'); },
+              pretty: true
+              // data: function(dest, src) { return require('./development/assets/scripts/textos.json'); },
               
             },
             files: [{
@@ -219,7 +219,7 @@ module.exports = function(grunt) {
             dist: {
                 options: {
                     src: "build/",
-                    dest: "./",
+                    dest: "/var/www/appixel/public_html/",
                     host: "root@104.131.184.196",
                     syncDestIgnoreExcl: false /* NAO ALTERAR */
                 }
@@ -256,5 +256,5 @@ module.exports = function(grunt) {
       ]);
 
     // Deploy
-    // grunt.registerTask('deploy', ['rsync']);
+    grunt.registerTask('deploy', ['rsync']);
 };
