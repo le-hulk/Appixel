@@ -217,8 +217,9 @@ header
 		padding 0 70px
 	.left-quem-sou
 		width 710px
-		float left
-		margin 50px 0 0 80px
+		// float left
+		display inline-block
+		margin 50px 0 0 0px
 		.avatar
 			width 346px
 			height 360px
@@ -247,6 +248,7 @@ header
 		float right
 		text-align left
 		margin 50px 80px 0 0
+		display none
 		h3
 			width 100%
 			display block
@@ -288,11 +290,121 @@ header
 			color #fff
 
 
-		
-
-
+footer
+	background-color #172132
+	width 100%
+	float left
+	margin 0
+	padding 0
+	text-align center
+	h2
+		font-size 22px
+		font-weight 600
+		letter-spacing 4px
+		color #fff
+		text-align center
+		margin 60px 0 0 0
+		&:before
+			content ''
+			background-image url('../images/contato.png')
+			background-repeat no-repeat
+			display block
+			width 28px
+			height 29px
+			margin 0 auto 20px
+	p
+		color #CDD8DC
+		line-height 130%
+		font-size 18px
+		margin-bottom 20px
+		padding 0 70px
+	.content-form
+		width 780px
+		margin 70px auto 0
+		text-align center
+		input[type="text"]
+			width 354px
+			height 57px
+			border 1px #2B3C51 solid
+			background-color transparent 
+			margin 0 5px
+			font-size 20px
+			color #4E6C84
+			padding-left 20px
+			font-weight 200
+			&:focus
+				color #fff
+				background-color #19243A
+				border-color #4D6C85
+		textarea
+			width 743px
+			margin-top 10px
+			height 135px
+			padding-left 20px
+			padding-top 20px
+			font-size 20px
+			color #4E6C84
+			font-weight 200
+			background-color transparent 
+			border 1px #2B3C51 solid
+			&:focus
+				color #fff
+				background-color #19243A
+				border-color #4D6C85
+		.status-envio
+			margin 20px 0 40px
+			font-size 13px
+			color rgb(74,108,135)
+			font-weight 200
+		input[type="submit"]
+			background-color: transparent;
+			border-color: #fff;
+			border-width: 2px;
+			border-style: solid;
+			font-size: 16px;
+			font-weight: 600;
+			letter-spacing: 1px;
+			padding: 20px 25px;
+			margin: 0px 0 50px;
+			display: inline-block;
+			color #fff
+			&:hover
+				background-color #fff
+				color #172132
+	a
+		width 44px
+		height 44px
+		display inline-block
+		background-color #4A6C87
+		margin 0 10px
+		color #172132
+		&:hover
+			color #fff
+	.be:hover
+		background-color #0474FF
+	.vi:hover
+		background-color #28C5EB
+	.in:hover
+		background-color #528AB7
+	.tw:hover
+		background-color #36BEF6
+	.fc:hover
+		background-color #5A80D3
 
 				
+			
+
+
+
+::-webkit-input-placeholder
+	color #4E6C84
+:-moz-placeholder
+	color #4E6C84
+::-moz-placeholder
+	color #4E6C84
+:-ms-input-placeholder
+	color #4E6C84
+			
 						
 
 
